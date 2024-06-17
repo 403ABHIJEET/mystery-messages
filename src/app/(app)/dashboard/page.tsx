@@ -55,7 +55,7 @@ function UserDashboard() {
     }, [setValue, toast]);
 
     const fetchMessages = useCallback(
-        async (refresh: boolean = false) => {
+        async (refresh: boolean = true) => {
             setIsLoading(true);
             setIsSwitchLoading(true);
             try {
