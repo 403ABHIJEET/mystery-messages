@@ -7,19 +7,16 @@ export async function POST(request: Request) {
     await dbConnect()
     try {
         const {username, email, password} = await request.json()
-        console.log(200)
         const existingUserVerifiedByUsername = await UserModel.findOne({
             username,
             isVerified: true
         })
-        console.log(200)
         if(existingUserVerifiedByUsername) {
             return Response.json({
                 success: false,
                 message: "Username already exist"
             }, {status: 400})
         }
-        console.log(200)
         const existingUserByemail = await UserModel.findOne({email})
         const verifyCode = Math.floor(100000 + Math.random() * 90000).toString()
         if(existingUserByemail) {
