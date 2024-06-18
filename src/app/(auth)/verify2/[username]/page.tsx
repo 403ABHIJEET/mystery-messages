@@ -35,7 +35,7 @@ const VerifyCode = () => {
                 title: "success",
                 description: response.data.message
             })
-            router.replace(`/dashboard`)
+            router.replace(`/reset-password/${param.username}`)
         } catch (error) {
             console.error("Error while verifying code", error)
             const axiosError = error as AxiosError<ApiResponse>

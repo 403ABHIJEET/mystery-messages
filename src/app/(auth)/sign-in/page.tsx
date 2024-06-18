@@ -94,6 +94,11 @@ export default function SignInForm() {
                         </Button>
                     </form>
                 </Form>
+                <div className='text-center mt-4'>
+                    <Link href="/forgot-password" className="text-blue-600 hover:text-blue-800">
+                        Forget Password
+                    </Link>
+                </div>
                 <div className="text-center mt-4">
                     <p>
                         New User?{' '}

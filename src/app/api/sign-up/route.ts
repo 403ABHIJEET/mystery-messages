@@ -30,7 +30,9 @@ export async function POST(request: Request) {
             existingUserByemail.password = hashPassword
             existingUserByemail.verifyCode = verifyCode
             existingUserByemail.verifyCodeExpiry = new Date(Date.now() + 3600000)
-            existingUserByemail.username = username
+            if(existingUserByemail.username != username) {
+                existingUserByemail.username = username
+            }
             await existingUserByemail.save()
         }
         else {
@@ -57,12 +59,12 @@ export async function POST(request: Request) {
         if(!emailResponse.success) {
             return Response.json({
                 success: false,
-                messages: "Failed to send email"
+                message: "Failed to send email"
             }, {status: 400})
         }
         return Response.json({
             success: true,
-            messages: "Email sent successfully"
+            message: "Email sent successfully"
         }, {status: 200})
     } catch(error) {
         console.error("Error while registring", error)
