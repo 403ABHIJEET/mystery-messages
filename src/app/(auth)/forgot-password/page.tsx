@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-const page = () => {
+const Page = () => {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const router = useRouter();
     const { toast } = useToast();
@@ -85,4 +85,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
