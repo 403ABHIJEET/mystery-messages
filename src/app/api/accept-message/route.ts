@@ -4,6 +4,8 @@ import UserModel from "@/model/User";
 import { authOptions } from "../auth/[...nextauth]/options";
 import { User } from "next-auth";
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: Request) {
     await dbConnect()
     const session = await getServerSession(authOptions)
